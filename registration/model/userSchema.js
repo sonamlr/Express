@@ -37,8 +37,8 @@ userSchema.pre('save', async function(next) {
 })
 userSchema.methods = {
     jwtToken() {
-        return JWT.sign({ id: this._id, email: this.email }),
-            process.env.SECRET, { expiresIn: '24h' }
+        return JWT.sign({ id: this._id, email: this.email },
+            process.env.SECRET, { expiresIn: '24h' });
     }
 }
 
